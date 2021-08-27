@@ -1,0 +1,23 @@
+{
+	"env": {
+		"browser": true,
+		"es2021": true
+	},
+	"extends": ["airbnb", "airbnb/hooks"],
+	"ignorePatterns": ["node_modules/*", "**/*.json", "/*.json", "/public/*"],
+	"rules": {
+		"no-unused-vars": "warn",
+		"no-console": "off",
+		"class-methods-use-this": "off",
+		"no-empty": "error",
+		"no-tabs": ["error", { "allowIndentationTabs": true }],
+		"indent": "off",
+		"no-useless-escape": "off",
+		"node/shebang": "off",
+		"comma-dangle": "off",
+		"node/no-unsupported-features/es-syntax": "off",
+		"no-process-exit": "off",
+		"react/jsx-indent": "off",
+		"react/react-in-jsx-scope": "off"
+	}
+}
