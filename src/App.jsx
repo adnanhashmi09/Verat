@@ -1,7 +1,10 @@
+import { Dashboard } from './Pages';
+import './App.css';
+
 function App() {
 	return (
 		<div className="App">
-			<h1>Verat</h1>
+			<Dashboard />
 		</div>
 	);
 }
