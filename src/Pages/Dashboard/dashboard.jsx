@@ -1,5 +1,3 @@
-import './dashboard.css';
-
 function Dashboard() {
 	return (
 		<div className="">
