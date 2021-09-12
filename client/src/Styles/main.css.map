@@ -1,0 +1,8 @@
+{
+    "version":3,
+    "sourceRoot":"",
+    "sources":["Sass/base/_typography.scss","Sass/base/_base.scss","Sass/abstracts/_variables.scss"],
+    "names":[],
+    "mappings":"AACQ;ACER;AAAA;AAAA;EAGC;EACA;EACA;;;AAGD;EACC;EACA;;;AAGD;EACC,kBCjBO;EDkBP;;;AAGD;AAAA;EAEC;EACA;;;AAGD;EACC;;;ADzBD;EACC;EACA;EACA;EACA;EACA,OEPO",
+    "file":"main.css"
+}
