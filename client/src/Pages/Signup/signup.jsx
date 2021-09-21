@@ -61,7 +61,7 @@ const Signup = () => {
 					{authErr && (
 						<h4>
 							Signup failed:
-							{authErr}
+							{` ${authErr}`}
 						</h4>
 					)}
 					<button type="submit" className="signup-btn" onClick={signupHandler}>

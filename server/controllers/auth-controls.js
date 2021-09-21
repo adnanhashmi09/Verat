@@ -3,13 +3,12 @@
 const passport = require('passport');
 const jwt = require('jsonwebtoken');
 const { isEmail } = require('validator');
-const { JWT } = require('../config/auth-keys');
 const db = require('../db/db-config');
 
 const user = db.user();
 
 const genJWT = async (soul) => {
-    const token = await jwt.sign(soul, JWT.jwtSecret);
+    const token = await jwt.sign(soul, process.env.JWT_SECRET);
     return token;
 };
 

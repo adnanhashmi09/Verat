@@ -9,7 +9,6 @@ const JWTStrategy = require('passport-jwt').Strategy;
 const LocalStrategy = require('passport-local').Strategy;
 const { isEmail } = require('validator');
 const db = require('../db/db-config');
-const { GoogleAPI, LinkedInAPI, JWT } = require('./auth-keys');
 
 const user = db.user();
 
@@ -38,7 +37,7 @@ passport.use(
 passport.use(
     new JWTStrategy({
         jwtFromRequest: cookieExtracter,
-        secretOrKey: JWT.jwtSecret
+        secretOrKey: process.env.JWT_SECRET
     },
     (jwt_payload, done) => {
         if (jwt_payload.soul === user._.soul) { return done(null, { auth: 'token authenticated' }); }
@@ -48,48 +47,62 @@ passport.use(
 
 passport.use(
     new GoogleStrategy({
-        clientID: GoogleAPI.clientID,
-        clientSecret: GoogleAPI.clientSecret,
+        clientID: process.env.GOOGLE_CLIENT_ID,
+        clientSecret: process.env.GOOGLE_CLIENT_SECRET,
         callbackURL: '/api/auth/google/redirect'
     },
     (accessToken, refreshToken, profile, done) => {
         const username = profile._json.email;
-        const password = GoogleAPI.clientSecret + username + profile.id;
-        user.auth(username, password, (cred) => {
-            if (cred.err) {
-                user.create(username, password, (key) => {
-                    if (key.err) { return done(null, false, { err: 'google authentication failed' }); }
-                    user.auth(username, password, (creds) => {
-                        if (creds.err) { return done(null, false, creds); }
-                        return done(null, { soul: creds.soul });
+        const password = `randomkey${username}`;
+        user.create(username, password, () => {
+            user.auth(username, password, (creds) => {
+                user.get('security').once((data) => {
+                    if (data && data.googleID) {
+                        if (data.googleID === profile.id) {
+                            return done(null, { soul: creds.soul });
+                        }
+                        return done(null, false, { err: 'google authentication failed' });
+                    }
+                    user.get('security').put({ googleID: profile.id }, (ack) => {
+                        if (ack.ok) {
+                            return done(null, { soul: creds.soul });
+                        }
+                        return done(null, false, { err: 'google signup failed' });
                     });
                 });
-            } else { return done(null, { soul: cred.soul }); }
+            });
         });
     })
 );
 
 passport.use(
     new LinkedInStrategy({
-        clientID: LinkedInAPI.clientID,
-        clientSecret: LinkedInAPI.clientSecret,
+        clientID: process.env.LINKEDIN_CLIENT_ID,
+        clientSecret: process.env.LINKEDIN_CLIENT_SECRET,
         scope: ['r_liteprofile', 'r_emailaddress'],
         callbackURL: '/api/auth/linkedin/redirect'
     },
     (accesstoken, refreshToken, profile, done) => {
         process.nextTick(async () => {
             const username = profile.emails[0].value;
-            const password = LinkedInAPI.clientSecret + username + profile.id;
-            user.auth(username, password, (cred) => {
-                if (cred.err) {
-                    user.create(username, password, (key) => {
-                        if (key.err) { return done(null, false, { err: 'linkedin authentication failed' }); }
-                        user.auth(username, password, (creds) => {
-                            if (creds.err) { return done(null, false, creds); }
-                            return done(null, { soul: creds.soul });
+            const password = `randomkey${username}`;
+            user.create(username, password, () => {
+                user.auth(username, password, (creds) => {
+                    user.get('security').once((data) => {
+                        if (data && data.linkedinID) {
+                            if (data.linkedinID === profile.id) {
+                                return done(null, { soul: creds.soul });
+                            }
+                            return done(null, false, { err: 'linkedin authentication failed' });
+                        }
+                        user.get('security').put({ linkedinID: profile.id }, (ack) => {
+                            if (ack.ok) {
+                                return done(null, { soul: creds.soul });
+                            }
+                            return done(null, false, { err: 'linkedin signup failed' });
                         });
                     });
-                } else { return done(null, { soul: cred.soul }); }
+                });
             });
         });
     })

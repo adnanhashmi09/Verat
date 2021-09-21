@@ -4,6 +4,7 @@
 /server/node_modules
 /server/radata
 /server/config/auth-keys.js
+/server/.env
 
 #client-dependencies
 /client/node_modules

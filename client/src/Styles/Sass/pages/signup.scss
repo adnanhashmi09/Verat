@@ -3,10 +3,11 @@
 .auth-signup {
     display: flex;
     justify-content: space-evenly;
-    height: 100vh;
+    min-height: 100vh;
+    overflow: auto;
 
     .login-redirect {
-        flex-basis: 85%;
+        flex-basis: 90%;
         display: flex;
         flex-direction: column;
         color: $color-primary;
@@ -18,17 +19,15 @@
         }
 
         h2 {
-            font-size: 4rem;
+            font-size: 5rem;
             margin-left: 6rem;
-            margin-top: 1rem;
-            span {
-                font-size: 5rem;
-            }
+            margin-top: 2.5rem;
+            line-height: 7rem;
         }
 
         a {
             margin-left: 5rem;
-            margin-top: 1.5rem;
+            margin-top: 2rem;
             width: 29%;
             min-width: 20rem;
             line-height: 4rem;
@@ -37,6 +36,7 @@
             font-weight: 600;
             border: 2px solid $color-primary;
             border-radius: 30px;
+            transition: background-color 0.3s ease-out;
 
             &:hover {
                 background-color: $color-primary;
@@ -48,7 +48,6 @@
             width: 90%;
             align-self: center;
             margin: auto;
-            overflow: hidden;
 
             img {
                 width: 100%;
@@ -58,27 +57,26 @@
 
     .signup {
         background-color: $color-secondary;
-        clip-path: polygon(0 0, 100% 0, 100% 100%, 15% 100%);
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 10% 100%);
         display: flex;
-        height: 100%;
         flex-basis: 100%;
         flex-direction: column;
         align-items: center;
-        overflow: auto;
         color: $color-primary;
 
         h1 {
             font-size: 4rem;
-            margin-top: 9.5rem;
+            margin-top: 11rem;
             font-weight: 550;
             text-align: center;
         }
 
         h4 {
-            font-size: 1.3rem;
-            padding-left: 1%;
-            margin-top: 1%;
+            font-size: 1.5rem;
+            padding-left: 10px;
+            margin-top: 1rem;
             color: $color-primary;
+            width: 100%;
         }
 
         form {
@@ -88,6 +86,7 @@
             justify-content: flex-end;
             height: auto;
             width: 50%;
+            min-width: 20rem;
             margin-top: 2rem;
             margin-bottom: 4rem;
 
@@ -98,7 +97,6 @@
                 height: 4.5rem;
                 font-size: 1.7rem;
                 border: none;
-                min-width: 20rem;
                 outline: none;
                 border-radius: 30px;
                 padding: 0 10px;
@@ -134,16 +132,16 @@
                 top: -3px;
                 display: inline-block;
                 width: 40%;
-                background-color: $color-primary;
+                background-color: $color-tertiary;
                 height: 1px;
             }
 
             &::before {
-                left: -2px;
+                left: -5px;
             }
 
             &::after {
-                left: 2px;
+                left: 5px;
             }
         }
 
@@ -152,13 +150,14 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            margin-bottom: 7rem;
 
             .auth-google, .auth-linkedin {
                 display: flex;
                 align-items: center;
                 margin: 1rem 0;
                 width: 50%;
-                min-width: 32rem;
+                min-width: 28rem;
                 height: 5rem;
                 border-radius: 30px;
                 background-color: white;
@@ -166,17 +165,17 @@
                 font-size: 1.7rem;
                 font-weight: 600;
                 color: $color-primary;
-    
+
                 &:hover {
                     cursor: pointer;
                 }
-    
+
                 img {
                     height: 70%;
                     margin-left: 2rem;
                     border-radius: 50%;
                 }
-    
+
                 span {
                     display: block;
                     width: 100%;
@@ -187,9 +186,22 @@
     }
 }
 
+@media (max-width: 1180px) {
+    .auth-signup {
+        div.signup {
+            .oauth {
+                .auth-google, .auth-linkedin  {
+                    span {
+                        margin-left: -1rem;
+                    }
+                }
+            }
+        }
+    }
+}
+
 @media (max-width: 760px) {
     div.auth-signup {
-        display: block;
 
         .login-redirect {
             display: none;
@@ -197,17 +209,11 @@
 
         .signup {
             clip-path: none;
+            min-height: 100%;
             overflow-y: auto;
 
             form {
-                width: 70%;
-
-                input {
-                    width: 80%;
-                }
-                .signup-btn {
-                    width: 40%;
-                }
+                width: 56%;
             }
 
             .oauth {
@@ -241,7 +247,7 @@
                     justify-content: center;
                     border-radius: 50%;
                     margin: 0 0.5rem;
-                    
+
                     span {
                         display: none;
                     }

@@ -49,7 +49,7 @@ const Login = () => {
 					{authErr && (
 						<h4>
 							Authentication failed:
-							{authErr}
+							{` ${authErr}`}
 						</h4>
 					)}
 					<button type="submit" className="login-btn" onClick={loginHandler}>
