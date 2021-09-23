@@ -2,6 +2,8 @@
   "dependencies": {
     "cookie-parser": "^1.4.5",
     "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "eslint-plugin-prettier": "^4.0.0",
     "express": "^4.17.1",
     "gun": "^0.2020.1234",
     "jsonwebtoken": "^8.5.1",
@@ -19,5 +21,11 @@
     "start": "nodemon app.js"
   },
   "repository": "https://github.com/DecFox/Verat",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.24.2"
+  }
 }

@@ -2,7 +2,6 @@ const passport = require('passport');
 const router = require('express').Router();
 const authControls = require('../controllers/auth-controls');
 
-
 router.post('/signup', authControls.signup);
 
 router.post('/login', authControls.login);
@@ -19,6 +18,4 @@ router.get('/linkedin', passport.authenticate('linkedin', { state: true }));
 
 router.get('/linkedin/redirect', authControls.ldSignin);
 
-
 module.exports = router;
-

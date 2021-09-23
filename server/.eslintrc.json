@@ -1,0 +1,23 @@
+{
+    "env": {
+        "browser": true,
+        "commonjs": true,
+        "es2021": true
+    },
+    "extends": ["airbnb-base"],
+    "parserOptions": {
+        "ecmaVersion": 12
+    },
+    "ignorePatterns": ["node_modules/*", "**/*.json", "/*.json"],
+    "rules": {
+        "no-unused-vars": "warn",
+		"no-console": "off",
+		"class-methods-use-this": "off",
+		"no-empty": "error",
+		"no-tabs": ["error", { "allowIndentationTabs": true }],
+		"indent": "off",
+		"no-useless-escape": "off",
+		"node/shebang": "off",
+		"comma-dangle": "off"
+    }
+}

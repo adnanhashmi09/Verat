@@ -1,11 +1,16 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
-# dependencies
+#server-dependencies
 /server/node_modules
+/server/radata
+/server/config/auth-keys.js
+/server/.env
+
+#client-dependencies
 /client/node_modules
 /.pnp
-/server/radata
 .pnp.js
+
 
 # testing
 /coverage

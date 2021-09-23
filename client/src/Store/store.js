@@ -1,9 +1,11 @@
-import { configureStore } from "@reduxjs/toolkit";
+/* eslint-disable import/prefer-default-export */
 
-import loginReducer from "../Features/loginSlice";
+import { configureStore } from '@reduxjs/toolkit';
+
+import loginReducer from '../Features/loginSlice';
 
 export const store = configureStore({
-    reducer: {
-        login: loginReducer
-    }
-})
+	reducer: {
+		login: loginReducer,
+	},
+});
