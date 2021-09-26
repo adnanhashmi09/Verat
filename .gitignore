@@ -11,6 +11,8 @@
 /.pnp
 .pnp.js
 
+#contract-dependencies
+/Contract/node_modules
 
 # testing
 /coverage
