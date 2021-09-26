@@ -27,7 +27,9 @@ passport.use(
             const isMailValid = await isEmail(username);
             if (isMailValid) {
                 user.auth(username, password, (cred) => {
-                    if (cred.err) { return done(null, false, cred); }
+                    if (cred.err) {
+                        return done(null, false, { err: cred.err });
+                    }
                     return done(null, { soul: cred.soul });
                 });
             } else { return done(null, false, { err: 'invalid email address' }); }

@@ -8,25 +8,27 @@ const db = require('../db/db-config');
 const user = db.user();
 
 const genJWT = async (soul) => {
-    const token = await jwt.sign(soul, process.env.JWT_SECRET);
+    const token = jwt.sign(soul, process.env.JWT_SECRET);
     return token;
 };
 
-module.exports.signup = (req, res) => {
+module.exports.signup = async (req, res) => {
     const { email, password } = req.body;
-    const isMailValid = isEmail(email);
-    if (isMailValid) {
-        user.create(email, password, (key) => {
-            if (key.err) { return res.json({ err: key.err }); }
-            user.auth(email, password, async (cred) => {
-                if (cred.err) { return res.json(cred); }
-                const token = await genJWT({ soul: cred.soul });
-                return res
-                    .cookie('jwt', token, { httpOnly: true })
-                    .json({ soul: cred.soul });
+    if (email && password) {
+        const isMailValid = await isEmail(email);
+        if (isMailValid) {
+            user.create(email, password, (key) => {
+                if (key.err) { return res.json({ err: key.err }); }
+                user.auth(email, password, async (cred) => {
+                    if (cred.err) { return res.json(cred); }
+                    const token = await genJWT({ soul: cred.soul });
+                    return res
+                        .cookie('jwt', token, { httpOnly: true })
+                        .json({ soul: cred.soul });
+                });
             });
-        });
-    } else { res.json({ err: 'invalid mail entered' }); }
+        } else { res.json({ err: 'invalid mail entered' }); }
+    } else { res.json({ err: 'Missing credentials' }); }
 };
 
 module.exports.login = (req, res) => {
