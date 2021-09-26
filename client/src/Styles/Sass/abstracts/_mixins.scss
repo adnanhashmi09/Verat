@@ -1,0 +1,12 @@
+@use './variables' as *;
+
+@mixin hamburger-style($top) {
+	content: '';
+	overflow: hidden;
+	height: 0.2rem;
+	width: 100%;
+	background-color: $color-white;
+	position: absolute;
+	top: $top;
+	transition: top 0.1s linear, transform 0.3s ease-out;
+}
