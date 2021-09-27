@@ -13,7 +13,6 @@ const Dashboard = () => {
 		fetch('/auth/login/success')
 			.then((res) => res.json())
 			.then((res) => {
-				console.log(res);
 				if (res.err) {
 					history.push('/login');
 				} else {
