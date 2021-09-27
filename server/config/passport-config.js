@@ -7,15 +7,18 @@ const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const LinkedInStrategy = require('passport-linkedin-oauth2').Strategy;
 const JWTStrategy = require('passport-jwt').Strategy;
 const LocalStrategy = require('passport-local').Strategy;
+const jwt = require('jsonwebtoken');
 const { isEmail } = require('validator');
 const db = require('../db/db-config');
 
 const user = db.user();
 
 const cookieExtracter = (req) => {
-    if (req && req.cookies) {
-        return req.cookies.jwt;
+    let token = jwt.sign({}, process.env.JWT_SECRET);
+    if (req.cookies && req.cookies.jwt) {
+        token = req.cookies.jwt;
     }
+    return token;
 };
 
 passport.use(
@@ -44,8 +47,11 @@ passport.use(
         secretOrKey: process.env.JWT_SECRET
     },
     (jwt_payload, done) => {
-        if (jwt_payload.soul === user._.soul) {
-            return done(null, { auth: 'token authenticated' });
+        if (jwt_payload.soul) {
+            if (jwt_payload.soul === user._.soul) {
+                return done(null, { auth: 'token authenticated' });
+            }
+            return done(null, false, { err: 'token authentication failed' });
         }
         return done(null, false, { err: 'token authentication failed' });
     })
