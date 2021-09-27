@@ -1,0 +1,90 @@
+@use '../abstracts/variables' as *;
+@use './searchbox.scss';
+@use './button.scss';
+// @use '../abstracts/mixins' as *;
+
+.topbar {
+	flex: 1;
+	display: flex;
+	flex-flow: column nowrap;
+	padding: 1rem 2rem;
+	background-color: $color-white;
+
+	&__up {
+		display: flex;
+		flex-flow: row nowrap;
+		justify-content: space-between;
+		align-items: center;
+
+		&__personal {
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+
+			&__icons {
+				font-size: clamp(1.5rem, 1.5vw, 2.5rem);
+				margin: 0 1rem;
+				color: $color-gray-mediumlight;
+				position: relative;
+				cursor: pointer;
+
+				&::after {
+					content: '';
+					height: 0.5rem;
+					width: 0.5rem;
+					border-radius: 50%;
+					background-color: $color-primary;
+					position: absolute;
+					top: 0.3rem;
+					right: 0;
+				}
+			}
+			&__profile {
+				height: 4.5rem;
+				width: 4.5rem;
+				border-radius: 50%;
+				overflow: hidden;
+				margin-left: 1.5rem;
+
+				& img {
+					height: 100%;
+					width: 100%;
+					object-fit: cover;
+					object-position: top;
+				}
+			}
+		}
+	}
+
+	&__down {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		flex-flow: row wrap;
+		margin-top: 2rem;
+
+		&__infoText {
+			display: flex;
+			flex-flow: column nowrap;
+			color: $color-black;
+			line-height: 1.2;
+		}
+	}
+}
+
+.breadcrumbs {
+	font-size: 1.3rem;
+}
+
+.greetings {
+	font-size: $font-big;
+	color: $color-primary;
+	font-weight: 600;
+	margin-bottom: 1rem;
+}
+
+@media only screen and (max-width: 700px) {
+	.topbar {
+		margin-left: $width-icons;
+	}
+}

@@ -1,4 +1,3 @@
-import '../../Styles/Sass/pages/login.scss';
 import { Link, useHistory } from 'react-router-dom';
 import { useState } from 'react';
 import image from '../../Assets/IMG/1.png';
@@ -46,25 +45,49 @@ const Login = () => {
 			<div className="login">
 				<h1>Welcome Back</h1>
 				<form className="auth">
-					<input type="email" placeholder="email" onChange={(e) => setEmail(e.target.value)} />
-					<input type="password" placeholder="password" onChange={(e) => setPassword(e.target.value)} />
+					<input
+						type="email"
+						placeholder="email"
+						onChange={(e) => setEmail(e.target.value)}
+					/>
+					<input
+						type="password"
+						placeholder="password"
+						onChange={(e) => setPassword(e.target.value)}
+					/>
 					{authErr && (
 						<h4>
 							Authentication failed:
 							{` ${authErr}`}
 						</h4>
 					)}
-					<button type="submit" className="login-btn" onClick={loginHandler}>
+					<button
+						type="submit"
+						className="login-btn"
+						onClick={loginHandler}
+					>
 						Login
 					</button>
 				</form>
 				<h2> or </h2>
 				<div className="oauth">
-					<button className="auth-google" type="button" onClick={() => { oAuthHandler('google'); }}>
+					<button
+						className="auth-google"
+						type="button"
+						onClick={() => {
+							oAuthHandler('google');
+						}}
+					>
 						<img src={google} alt="google logo" />
 						<span>Signup with Google</span>
 					</button>
-					<button className="auth-linkedin" type="button" onClick={() => { oAuthHandler('linkedin'); }}>
+					<button
+						className="auth-linkedin"
+						type="button"
+						onClick={() => {
+							oAuthHandler('linkedin');
+						}}
+					>
 						<img src={linkedin} alt="linkedin logo" />
 						<span>Signup with Linkedin</span>
 					</button>

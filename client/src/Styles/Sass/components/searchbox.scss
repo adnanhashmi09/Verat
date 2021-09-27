@@ -1,0 +1,83 @@
+@use '../abstracts/variables' as *;
+
+.searchBox {
+	display: flex;
+	flex-flow: row nowrap;
+	position: relative;
+	align-items: center;
+
+	&__input {
+		width: 20rem;
+		height: 3.1rem;
+		padding: 0.7rem 0 0.7rem 1.5rem;
+		border: 0.1rem solid $color-gray;
+		border-radius: 8rem;
+		outline: none;
+		border-right: none;
+		border-top-right-radius: 0 0;
+		border-bottom-right-radius: 0 0;
+		transition: border 0.3s ease;
+
+		@media only screen and (max-width: 500px) {
+			width: 0;
+			padding: 0;
+			border: none;
+		}
+
+		&:focus {
+			border: 0.1rem solid $color-primary;
+			border-right: none;
+
+			&::-webkit-input-placeholder {
+				transition: opacity 0.3s ease;
+				opacity: 0;
+			}
+			&::-moz-placeholder {
+				transition: opacity 0.3s ease;
+				opacity: 0;
+			}
+			&:-ms-placeholder {
+				transition: opacity 0.3s ease;
+				opacity: 0;
+			}
+		}
+	}
+
+	&__input.small {
+		width: 0;
+		padding: 0;
+		border: none;
+	}
+
+	&__input:focus + &__btn {
+		border: 0.1rem solid $color-primary;
+		border-left: none;
+	}
+
+	&__btn {
+		display: inline-block;
+		border: none;
+		background-color: transparent;
+		right: 1.5rem;
+		outline: none;
+		cursor: pointer;
+		height: 3.1rem;
+		width: 3.1rem;
+		border-left: none;
+		border-top-right-radius: 8rem 8rem;
+		border-bottom-right-radius: 8rem 8rem;
+		border: 0.1rem solid $color-gray;
+		border-left: none;
+		transition: border 0.3s ease;
+
+		@media only screen and (max-width: 500px) {
+			border: 0.1rem solid $color-gray;
+			border-radius: 50%;
+		}
+	}
+
+	&__btn.small {
+		border: 0.1rem solid $color-gray;
+		border-radius: 50%;
+	}
+}

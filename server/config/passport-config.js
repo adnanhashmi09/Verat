@@ -32,7 +32,9 @@ passport.use(
                     }
                     return done(null, { soul: cred.soul });
                 });
-            } else { return done(null, false, { err: 'invalid email address' }); }
+            } else {
+                return done(null, false, { err: 'invalid email address' });
+            }
         })
 );
 
@@ -42,7 +44,9 @@ passport.use(
         secretOrKey: process.env.JWT_SECRET
     },
     (jwt_payload, done) => {
-        if (jwt_payload.soul === user._.soul) { return done(null, { auth: 'token authenticated' }); }
+        if (jwt_payload.soul === user._.soul) {
+            return done(null, { auth: 'token authenticated' });
+        }
         return done(null, false, { err: 'token authentication failed' });
     })
 );

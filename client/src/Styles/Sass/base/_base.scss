@@ -28,3 +28,15 @@ a:visited {
 li {
 	list-style: none;
 }
+
+::-webkit-scrollbar {
+	width: 0.5rem;
+}
+
+::-webkit-scrollbar-track {
+	background: transparent;
+}
+::-webkit-scrollbar-thumb {
+	background: $color-tertiary;
+	border-radius: 4rem;
+}

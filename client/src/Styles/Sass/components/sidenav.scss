@@ -1,0 +1,137 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+@use './hamburgerToggle.scss';
+
+.sidenav {
+	background-color: $color-primary;
+	width: $width-icons;
+	position: sticky;
+	top: 0;
+	height: 100vh;
+	flex-shrink: 0;
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: space-between;
+	padding: 2rem 0;
+	overflow-y: auto;
+	overflow-x: hidden;
+	transition: width 0.3s ease;
+	z-index: 2;
+
+	&__top {
+		width: 100%;
+		display: flex;
+		flex-flow: row nowrap;
+		justify-content: space-between;
+		align-items: center;
+		&__logo {
+			height: 2.5rem;
+			padding: 0 1.5rem;
+			overflow: hidden;
+			display: none;
+			align-items: center;
+
+			& img {
+				height: 100%;
+			}
+		}
+	}
+
+	&__linkGroup {
+		display: flex;
+		flex-flow: column nowrap;
+	}
+
+	&__link {
+		width: 90%;
+		padding: 0.5rem 0;
+		margin: 1rem 0;
+		position: relative;
+		align-self: flex-start;
+		cursor: pointer;
+		display: flex;
+		border-top-right-radius: 8rem;
+		border-bottom-right-radius: 8rem;
+		transition: background-color 0.3s ease;
+
+		&.selected {
+			background-color: lighten($color: $color-primary, $amount: 7%);
+		}
+
+		&:hover {
+			background-color: lighten($color: $color-primary, $amount: 4%);
+		}
+
+		&.selected::before {
+			content: '';
+			height: 100%;
+			top: 50%;
+			left: 0;
+			transform: translateY(-50%);
+			width: 0.3rem;
+			background-color: $color-white;
+			position: absolute;
+		}
+
+		&.selected &__icon,
+		&.selected &__text {
+			color: $color-white;
+		}
+
+		&__icon-container {
+			width: $width-icons;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			flex-shrink: 0;
+		}
+
+		&__icon {
+			font-size: 1.8rem;
+		}
+
+		&__icon,
+		&__text {
+			color: $color-gray-medium;
+		}
+
+		&__text {
+			font-size: 1.5rem;
+			margin-left: 1.7rem;
+			visibility: hidden;
+			opacity: 0;
+			transition: opacity 1s ease;
+			white-space: nowrap;
+		}
+	}
+
+	&.active {
+		width: 25rem;
+
+		& .btn-sidenav {
+			opacity: 1;
+		}
+	}
+
+	&.active & {
+		&__top {
+			&__logo {
+				display: flex;
+			}
+		}
+		&__link {
+			&__text {
+				display: inline-block;
+				opacity: 1;
+				visibility: visible;
+			}
+		}
+	}
+}
+
+@media only screen and (max-width: 700px) {
+	.sidenav {
+		position: fixed;
+		top: 0;
+	}
+}

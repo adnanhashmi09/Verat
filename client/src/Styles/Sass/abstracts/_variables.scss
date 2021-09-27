@@ -1,4 +1,14 @@
 $color-primary: #0c2a57;
-$color-secondary: #f5f9ff;
 $color-tertiary: #aac0e0;
 $color-gray: #a3a3a3;
+$color-gray-medium: #929292;
+$color-gray-light: #f8f8f8;
+$color-gray-mediumlight: #cccccc;
+$color-secondary: #f5f9ff;
+$color-white: #ffffff;
+$color-black: #000000;
+
+$width-icons: clamp(5rem, 5vw, 7rem);
+
+$font-big: clamp(2.5rem, 5vw, 3.5rem);
+$font-medium: clamp(1.3rem, 3vw, 1.7rem);

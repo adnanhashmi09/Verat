@@ -2,6 +2,8 @@ import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { useEffect } from 'react';
 import { toggleLogin } from '../../Features/loginSlice';
+import SideNav from '../../Components/sidenav';
+import TopBar from '../../Components/topbar';
 
 const Dashboard = () => {
 	const dispatch = useDispatch();
@@ -36,9 +38,12 @@ const Dashboard = () => {
 	};
 
 	return (
-		<button onClick={logoutHandler} type="button">
-			Logout
-		</button>
+		<div className="dashboard">
+			<SideNav logout={logoutHandler} />
+			<main className="container">
+				<TopBar />
+			</main>
+		</div>
 	);
 };
 
