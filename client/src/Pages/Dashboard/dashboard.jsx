@@ -1,4 +1,4 @@
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { useEffect } from 'react';
 import { toggleLogin } from '../../Features/loginSlice';
@@ -8,6 +8,7 @@ import TopBar from '../../Components/topbar';
 const Dashboard = () => {
 	const dispatch = useDispatch();
 	const history = useHistory();
+	const isLoggedIn = useSelector((state) => state.login.login);
 
 	useEffect(() => {
 		fetch('/auth/login/success')
@@ -37,12 +38,16 @@ const Dashboard = () => {
 	};
 
 	return (
-		<div className="dashboard">
-			<SideNav logout={logoutHandler} />
-			<main className="container">
-				<TopBar />
-			</main>
-		</div>
+		<>
+			{isLoggedIn && (
+				<div className="dashboard">
+					<SideNav logout={logoutHandler} />
+					<main className="container">
+						<TopBar />
+					</main>
+				</div>
+			)}
+		</>
 	);
 };
 
