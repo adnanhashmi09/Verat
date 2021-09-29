@@ -1,4 +1,4 @@
-import './Styles/Sass/main.scss';
+import './Styles/main.css';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { SignUp, Login, Dashboard } from './Pages/index';
 // import { useSelector } from 'react-redux';

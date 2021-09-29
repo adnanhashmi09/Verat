@@ -25,6 +25,8 @@ const Login = () => {
 			.then((data) => {
 				if (data.err) {
 					setAuthErr(data.err);
+				} else if (data.message) {
+					setAuthErr(data.message);
 				} else {
 					history.push('/dashboard');
 				}
