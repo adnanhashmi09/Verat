@@ -10,6 +10,7 @@ const Dashboard = () => {
 	const loginStatus = useSelector((state) => state.login);
 	const dispatch = useDispatch();
 	const history = useHistory();
+	const isLoggedIn = useSelector((state) => state.login.login);
 
 	useEffect(() => {
 		if (!loginStatus.loggedIn) {
