@@ -1,27 +1,31 @@
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { useEffect } from 'react';
 import { toggleLogin } from '../../Features/loginSlice';
+import { toggleHamburger } from '../../Features/hamburgerSlice';
 import SideNav from '../../Components/sidenav';
 import TopBar from '../../Components/topbar';
 
 const Dashboard = () => {
+	const loginStatus = useSelector((state) => state.login);
 	const dispatch = useDispatch();
 	const history = useHistory();
 
 	useEffect(() => {
-		fetch('/auth/login/success')
-			.then((res) => res.json())
-			.then((res) => {
-				if (res.err) {
-					history.push('/login');
-				} else {
-					dispatch(toggleLogin(true));
-				}
-			})
-			.catch((err) => {
-				console.log(err);
-			});
+		if (!loginStatus.loggedIn) {
+			fetch('/auth/login/success')
+				.then((res) => res.json())
+				.then((res) => {
+					if (res.err) {
+						history.push('/login');
+					} else {
+						dispatch(toggleLogin(true));
+					}
+				})
+				.catch((err) => {
+					console.log(err);
+				});
+		}
 	});
 
 	const logoutHandler = () => {

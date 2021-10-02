@@ -1,13 +1,12 @@
 /* eslint-disable no-param-reassign */
-
 import { createSlice } from '@reduxjs/toolkit';
 
 const loginSlice = createSlice({
 	name: 'login',
-	initialState: { login: false },
+	initialState: { loggedIn: false },
 	reducers: {
 		toggleLogin(state, action) {
-			state.login = action.payload;
+			state.loggedIn = action.payload;
 		},
 	},
 });
