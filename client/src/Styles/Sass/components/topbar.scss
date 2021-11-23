@@ -4,9 +4,9 @@
 // @use '../abstracts/mixins' as *;
 
 .topbar {
-	flex: 1;
 	display: flex;
 	flex-flow: column nowrap;
+	flex-basis: auto;
 	padding: 1rem 2rem;
 	background-color: $color-white;
 

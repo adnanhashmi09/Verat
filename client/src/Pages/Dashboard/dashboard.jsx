@@ -1,33 +1,52 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useDispatch, useSelector } from 'react-redux';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import { useEffect } from 'react';
 import { toggleLogin } from '../../Features/loginSlice';
-import { toggleHamburger } from '../../Features/hamburgerSlice';
+import { setUser } from '../../Features/userSlice';
 import SideNav from '../../Components/sidenav';
 import TopBar from '../../Components/topbar';
+import Profile from '../Profile/user';
+import Company from '../Profile/company';
+import Employees from '../Employees/employees';
 
-const Dashboard = () => {
-	const loginStatus = useSelector((state) => state.login);
+const Dashboard = ({ loginStatus }) => {
+	const user = useSelector((state) => state.user);
 	const dispatch = useDispatch();
+	const { path } = useParams();
 	const history = useHistory();
-	const isLoggedIn = useSelector((state) => state.login.login);
 
 	useEffect(() => {
 		if (!loginStatus.loggedIn) {
-			fetch('/auth/login/success')
-				.then((res) => res.json())
-				.then((res) => {
-					if (res.err) {
-						history.push('/login');
-					} else {
-						dispatch(toggleLogin(true));
-					}
-				})
-				.catch((err) => {
-					console.log(err);
-				});
+			dispatch(setUser({
+				name: null,
+				photo: null
+			}));
 		}
-	});
+		fetch('/auth/login/success')
+			.then((res) => res.json())
+			.then((res) => {
+				if (res.err) {
+					history.push('/login');
+				} else {
+					dispatch(toggleLogin(true));
+					fetch('/profile/details')
+						.then((data) => data.json())
+						.then((data) => {
+							console.log(data);
+							if (!data.err) {
+								dispatch(setUser(data.details));
+							}
+						})
+						.catch((err) => {
+							console.log(err);
+						});
+				}
+			})
+			.catch((err) => {
+				console.log(err);
+			});
+	}, [user]);
 
 	const logoutHandler = () => {
 		fetch('/auth/logout')
@@ -45,7 +64,11 @@ const Dashboard = () => {
 		<div className="dashboard">
 			<SideNav logout={logoutHandler} />
 			<main className="container">
-				<TopBar />
+				<TopBar path={!path ? 'home' : path} name={user.name} photo={user.photo} />
+				{!path && <h1>hello</h1>}
+				{(path === 'profile') && <Profile />}
+				{(path === 'company') && <Company />}
+				{(path === 'employees') && <Employees />}
 			</main>
 		</div>
 	);

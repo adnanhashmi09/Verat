@@ -1,10 +1,10 @@
 import './Styles/main.css';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import { SignUp, Login, Dashboard } from './Pages/index';
-// import { useSelector } from 'react-redux';
 
 function App() {
-  // const loginStatus = useSelector(state => state.login);
+  const loginStatus = useSelector((state) => state.login);
 
   return (
     <div className="App">
@@ -20,7 +20,10 @@ function App() {
             <Login />
           </Route>
           <Route exact path="/dashboard">
-            <Dashboard />
+            <Dashboard loginStatus={loginStatus} />
+          </Route>
+          <Route path="/dashboard/:path">
+            <Dashboard loginStatus={loginStatus} />
           </Route>
         </Switch>
       </Router>

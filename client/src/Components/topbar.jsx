@@ -1,10 +1,11 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBell, faCommentDots } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
 import Search from './search';
 import profile from '../Assets/IMG/profile.jpg';
 
-function TopBar() {
+function TopBar({ path, name, photo }) {
 	return (
 		<div className="topbar">
 			<div className="topbar__up">
@@ -17,14 +18,18 @@ function TopBar() {
 						<FontAwesomeIcon icon={faBell} />
 					</div>
 					<div className="topbar__up__personal__profile">
-						<img src={profile} alt="profile-pc" />
+						<Link to="/dashboard/profile">
+							<img src={photo ? `http://localhost:5000/${photo}` : profile} alt="profile-pc" />
+						</Link>
 					</div>
 				</div>
 			</div>
 			<div className="topbar__down">
 				<div className="topbar__down__infoText">
-					<span className="breadcrumbs">Home</span>
-					<span className="greetings">Hello, John!</span>
+					<span className="breadcrumbs">{path.charAt(0).toUpperCase() + path.slice(1)}</span>
+					<span className="greetings">
+						{ !name ? 'Hello' : `Hello, ${name}`}
+					</span>
 				</div>
 				<div className="btn">Report</div>
 			</div>
