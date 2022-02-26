@@ -1,0 +1,255 @@
+@use '../abstracts//variables' as *;
+
+.profile {
+    flex-basis: 100%;
+    display: block;
+    overflow: auto;
+
+    &_inner {
+        width: 70%;
+        min-height: 90%;
+        display: flex;
+        flex-direction: column;
+        color: $color-primary;
+        align-items: center;
+        margin: 4rem auto;
+        background-color: $color-white;
+        border-radius: 40px;
+
+        &_form {
+            width: 90%;
+            display: flex;
+            flex-direction: column;
+            color: $color-primary;
+            align-items: center;
+            margin: 3rem 2rem;
+    
+            h1 {
+                line-height: 1.25;
+                font-size: 4.5rem;
+                text-align: center;
+                margin-top: 2rem;
+                margin-bottom: 4rem;
+            }
+    
+            .setup {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                width: 65%;
+                margin-bottom: 4rem;
+    
+                button {
+                    width: 50%;
+                    height: 4.5rem;
+                    background-color: $color-primary;
+                    border: none;
+                    border-radius: 30px;
+                    margin-top: 1rem;
+                    color: $color-white;
+                    font-size: 1.8rem;
+                    font-weight: 600;
+    
+                    &:hover {
+                        cursor: pointer;
+                    }
+                }
+    
+                &_inner {
+                    display: flex;
+                    justify-content: center;
+                    margin-bottom: 2rem;
+                    width: 100%;
+    
+                    .photo {
+                        flex: 1;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+    
+                        &_upload {
+                            display: flex;
+                            height: 23rem;
+                            width: 23rem;
+                            margin-top: 1rem;
+                            align-items: center;
+                            justify-content: center;
+                            border-radius: 50%;
+                            border: 2px solid $color-gray;
+    
+                            h2 {
+                                text-align: center;
+                                font-weight: 500;
+                                font-size: 2rem;
+                                color: $color-gray-medium;
+                            }
+    
+                            &:hover {
+                                cursor: pointer;
+                            }
+    
+                            img {
+                                border-radius: inherit;
+                                width: inherit;
+                                height: inherit;
+                            }
+    
+                            input {
+                                display: none;
+                            }
+                        }
+                    }
+    
+                    .details {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        flex: 2;
+            
+                        input {
+                            display: block;
+                            width: 85%;
+                            color: $color-primary;
+                            height: 5rem;
+                            margin: 1rem 0;
+                            border-radius: 30px;
+                            border: 2px solid $color-gray;
+                            font-size: 1.7rem;
+                            padding: 0 15px;
+                            outline: none;
+                            transition: 0.3s border ease-in-out;
+            
+                            &:focus {
+                                border: 2px solid $color-primary;
+            
+                                &::placeholder {
+                                    transition: 0.3s opacity ease-in;
+                                    opacity: 0;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        &_view {
+            display: flex;
+            flex-direction: column;
+            width: 90%;
+            color: $color-primary;
+            align-items: center;
+            margin: 3rem 2rem;
+
+            h1 {
+                line-height: 1.25;
+                font-size: 4.5rem;
+                text-align: center;
+                margin-top: 2rem;
+            }
+
+            .info {
+                display: flex;
+                width: 80%;
+                flex-direction: column;
+                align-items: center;
+                img {
+                    border-radius: 50%;
+                    width: 23rem;
+                    height: 23rem;
+                    margin-top: 3rem;
+                    margin-bottom: 4rem;
+                    border: 2px solid $color-white;
+                    outline: 2px solid $color-primary;
+                }
+
+                &_inner {
+                    width: 80%;
+
+                    h2 {
+                        font-size: 2rem;
+                        width: 100%;
+                        margin-top: 0.25rem;
+                        display: flex;
+                        justify-content: space-between;
+                        font-weight: 300;
+                        
+                        span {
+                            font-weight: 400;
+                            font-size: 2rem;
+                            text-align: right;
+
+                            &.review {
+                                &_false {
+                                    color: rgb(228, 161, 15);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 760px) {
+    .profile {
+        &_inner {
+            width: 90%;
+
+            &_form {
+                .setup {
+                    width: 100%;
+                }
+            }
+
+            &_view {
+                .info {
+                    width: 100%;
+                    
+                    &_inner {
+                        width: 100%;
+
+                        h2 {
+                            display: flex;
+                            flex-direction: column;
+                            text-align: center;
+
+                            span {
+                                text-align: center;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width:700px) {
+    div.profile {
+        margin-left: $width-icons;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    div.profile {
+        &_inner {
+            &_form {
+                .setup {
+                    &_inner {
+                        display: flex;
+                        align-items: center;
+                        flex-direction: column;
+
+                        .photo {
+                            &_upload {
+                                margin-bottom: 1rem;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

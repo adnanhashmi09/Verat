@@ -1,0 +1,429 @@
+@use '../abstracts//variables' as *;
+
+.company {
+    flex-basis: 100%;
+    display: block;
+    overflow: auto;
+
+    &_inner {
+
+        &_form {
+            width: 95%;
+            min-height: 90%;
+            display: flex;
+            color: $color-primary;
+            margin: 4rem auto;
+            background-color: $color-white;
+            align-items: center;
+            border-radius: 40px;
+
+            .register {
+                display: flex;
+                flex-direction: column;
+                flex: 1.75;
+                margin: 2rem 0;
+                align-items: center;
+                
+                h1 {
+                    line-height: 1.25;
+                    width: 80%;
+                    font-size: 4.5rem;
+                    text-align: center;
+                    padding: 1rem 0;
+                    margin-bottom: 2rem;
+                }
+        
+                form {
+                    display: block;
+                    width: 90%;
+                    display: flex;
+                    margin-bottom: 2rem;
+                    justify-content: space-between;
+        
+                    .logo {
+                        flex-basis: 80%;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: space-evenly;
+        
+                        &_upload {
+                            display: flex;
+                            height: 25rem;
+                            width: 25rem;
+                            align-items: center;
+                            justify-content: center;
+                            border-radius: 50%;
+                            border: 2px solid $color-gray;
+
+                            h2 {
+                                text-align: center;
+                                font-weight: 500;
+                                font-size: 2rem;
+                                color: $color-gray-medium;
+                            }
+
+                            &:hover {
+                                cursor: pointer;
+                            }
+
+                            img {
+                                width: inherit;
+                                height: inherit;
+                                border-radius: inherit;
+                            }
+
+                            input {
+                                display: none;
+                            }
+                        }
+        
+                        button {
+                            display: block;
+                            width: 65%;
+                            height: 4.5rem;
+                            background-color: $color-primary;
+                            border: none;
+                            margin-top: 9rem;
+                            border-radius: 30px;
+                            color: $color-white;
+                            font-size: 1.8rem;
+                            font-weight: 600;
+        
+                            &:hover {
+                                cursor: pointer;
+                            }
+                        }
+                    }
+                    
+                    .details {
+                        flex-basis: 100%;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+        
+                        input {
+                            display: block;
+                            width: 80%;
+                            color: $color-primary;
+                            height: 5rem;
+                            margin: 1rem 0;
+                            border-radius: 30px;
+                            border: 2px solid $color-gray;
+                            font-size: 1.7rem;
+                            padding: 0 15px;
+                            outline: none;
+                            transition: 0.3s border ease-in-out;
+        
+                            &:focus {
+                                border: 2px solid $color-primary;
+        
+                                &::placeholder {
+                                    transition: 0.3s opacity ease-in;
+                                    opacity: 0;
+                                }
+                            }
+                        }
+        
+                        select {
+                            display: block;
+                            width: 80%;
+                            height: 5rem;
+                            margin: 1rem 0;
+                            border-radius: 30px;
+                            border: 2px solid $color-gray;
+                            font-size: 1.7rem;
+                            padding: 0 15px;
+                            background-color: transparent;
+                            appearance: none;
+                            outline: none;
+                            color: $color-primary;
+        
+                            &:hover {
+                                cursor: pointer;
+                            }
+        
+                            &:focus {
+                                border: 2px solid $color-primary;
+                                cursor: pointer;
+        
+                                &::placeholder {
+                                    transition: 0.3s opacity ease-in;
+                                    opacity: 0;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            h2.division {
+                color: $color-primary;
+                align-self: stretch;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                
+                &::before, &::after {
+                    width: 1px;
+                    height: 40%;
+                    content: '';
+                    background-color: $color-gray;
+                }
+            }
+
+            .enroll {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                margin: 2rem 0;
+                flex: 1;
+        
+                h1 {
+                    line-height: 1.25;
+                    width: 80%;
+                    font-size: 4.5rem;
+                    text-align: center;
+                }
+
+                h2 {
+                    font-size: 3rem;
+                    line-height: 1.5;
+                    text-align: center;
+                    width: 65%;
+                    margin-top: 2rem;
+                    margin-bottom: 3rem;
+                }
+
+                form {
+                    display: block;
+                    width: 80%;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    margin-bottom: 2rem;
+
+                    input {
+                        display: block;
+                        color: $color-primary;
+                        width: 100%;
+                        height: 5rem;
+                        border-radius: 30px;
+                        padding: 0 15px;
+                        font-size: 1.7rem;
+                        outline: none;
+                        border: 2px solid $color-gray;
+                        margin-bottom: 3.5rem;
+                        transition: 0.3s border ease-in-out;
+
+                        &:focus {
+                            border: 2px solid $color-primary;
+
+                            &::placeholder {
+                                transition: 0.3s opacity ease-in;
+                                opacity: 0;
+                            }
+                        }
+                    }
+
+                    button {
+                        display: block;
+                        width: 50%;
+                        height: 4rem;
+                        background-color: $color-primary;
+                        border: none;
+                        border-radius: 30px;
+                        color: $color-white;
+                        font-size: 1.7rem;
+                        font-weight: 600;
+
+                        &:hover {
+                            cursor: pointer;
+                        }
+                    }
+                }
+            }
+        }
+
+        &_view {
+            width: 70%;
+            min-height: 90%;
+            display: flex;
+            color: $color-primary;
+            margin: 4rem auto;
+            background-color: $color-white;
+            flex-direction: column;
+            align-items: center;
+            border-radius: 40px;
+
+            .info {
+                margin: 3rem 2rem;
+                width: 70%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                h1 {
+                    font-size: 4.5rem;
+                    text-align: center;
+                }
+
+                img {
+                    border-radius: 50%;
+                    width: 25rem;
+                    height: 25rem;
+                    margin-top: 3rem;
+                    border: 2px solid $color-white;
+                    outline: 2px solid $color-primary;
+                }
+
+                &_view {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    margin-top: 3rem;
+                    width: 100%;
+
+                    h2 {
+                        font-size: 2rem;
+                        width: 100%;
+                        align-self: center;
+                        margin-top: 0.25rem;
+                        display: flex;
+                        justify-content: space-between;
+                        font-weight: 300;
+                        
+                        span {
+                            font-weight: 400;
+                            font-size: 2rem;
+                            text-align: right;
+                        }
+                    }
+
+                    div.refCode {
+                        display: flex;
+                        width: 100%;
+                        margin-top: 0.25rem;
+
+                        h2 {
+                            margin-top: 0;
+                        }
+                        
+                        button {
+                            display: block;
+                            margin: auto 0;
+                            margin-left: 1rem;
+                            font-size: 2rem;
+                            color: $color-tertiary;
+                            background: transparent;
+                            border: none;
+
+                            &:hover {
+                                cursor: pointer;
+                                color: $color-primary
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 790px) {
+    .company {
+        &_inner {
+
+            &_form {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                h2.division {
+                    display: block;
+                    text-align: center;
+
+                    &::before, &::after {
+                        position: relative;
+                        display: inline-block;
+                        width: 40%;
+                        height: 1px;
+                        content: '';
+                        top: -3px;
+                        background-color: $color-gray;
+                    }
+
+                    &::before {
+                        left: -5px;
+                    }
+
+                    &::after {
+                        left: 5px;
+                    }
+                }
+            }
+
+            &_view {
+                width: 90%;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width:700px) {
+    div.company {
+        margin-left: $width-icons;
+    }
+}
+
+@media only screen and (max-width:600px) {
+    div.company {
+        &_inner {
+            &_form {
+                div.register {
+                    form {
+                        flex-direction: column;
+                        align-items: center;
+    
+                        .details {
+                            width: 80%;
+                        }
+    
+                        .logo {
+                            button {
+                                margin: 2rem 0;
+                            }
+                        }
+                    }
+                }
+            }
+
+            &_view {
+                .info {
+                    &_view {
+
+                        h2 {
+                            display: flex;
+                            flex-direction: column;
+                            width: fit-content;
+                            text-align: center;
+
+                            span {
+                                text-align: center;
+                            }
+                        }
+
+                        div.refCode {
+                            width: fit-content;
+                            
+                            button {
+                                margin-left: 2rem;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

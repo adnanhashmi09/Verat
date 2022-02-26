@@ -18,16 +18,16 @@ function SideNav({ logout }) {
 	const dispatch = useDispatch();
 
 	const navListMain = [
-		{ icon: faTachometerAlt, text: 'Home' },
-		{ icon: faUsers, text: 'Employees' },
-		{ icon: faChartArea, text: 'Statistics' },
-		{ icon: faShippingFast, text: 'Shipments' },
-		{ icon: faIndustry, text: 'Factory' },
+		{ icon: faTachometerAlt, text: 'Home', link: 'home' },
+		{ icon: faUsers, text: 'Employees', link: 'employees' },
+		{ icon: faChartArea, text: 'Statistics', link: 'statistics' },
+		{ icon: faShippingFast, text: 'Shipments', link: 'shipments' },
+		{ icon: faIndustry, text: 'Factory', link: 'factory' },
 	];
 
 	const navListUtility = [
-		{ icon: faCog, text: 'Settings' },
-		{ icon: faLifeRing, text: 'Help' },
+		{ icon: faCog, text: 'Settings', link: 'settings' },
+		{ icon: faLifeRing, text: 'Company', link: 'company' },
 	];
 
 	const [selectedList, setSelectedList] = useState(0);
@@ -69,6 +69,7 @@ function SideNav({ logout }) {
 						text={item.text}
 						key={`sidenavList_${i}`}
 						selectListItem={selectListItem}
+						link={item.link}
 					/>
 				))}
 			</ul>
@@ -83,6 +84,7 @@ function SideNav({ logout }) {
 						text={item.text}
 						key={`sidenavList_${navListMain.length + 1 + i}`}
 						selectListItem={selectListItem}
+						link={item.link}
 					/>
 				))}
 			</ul>

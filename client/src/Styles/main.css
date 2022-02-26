@@ -472,6 +472,863 @@ body {
     margin-left: 0px;
   }
 }
+.profile {
+  flex-basis: 100%;
+  display: block;
+  overflow: auto;
+}
+.profile_inner {
+  width: 70%;
+  min-height: 90%;
+  display: flex;
+  flex-direction: column;
+  color: #0c2a57;
+  align-items: center;
+  margin: 4rem auto;
+  background-color: #ffffff;
+  border-radius: 40px;
+}
+.profile_inner_form {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  color: #0c2a57;
+  align-items: center;
+  margin: 3rem 2rem;
+}
+.profile_inner_form h1 {
+  line-height: 1.25;
+  font-size: 4.5rem;
+  text-align: center;
+  margin-top: 2rem;
+  margin-bottom: 4rem;
+}
+.profile_inner_form .setup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 65%;
+  margin-bottom: 4rem;
+}
+.profile_inner_form .setup button {
+  width: 50%;
+  height: 4.5rem;
+  background-color: #0c2a57;
+  border: none;
+  border-radius: 30px;
+  margin-top: 1rem;
+  color: #ffffff;
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+.profile_inner_form .setup button:hover {
+  cursor: pointer;
+}
+.profile_inner_form .setup_inner {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+  width: 100%;
+}
+.profile_inner_form .setup_inner .photo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.profile_inner_form .setup_inner .photo_upload {
+  display: flex;
+  height: 23rem;
+  width: 23rem;
+  margin-top: 1rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 2px solid #a3a3a3;
+}
+.profile_inner_form .setup_inner .photo_upload h2 {
+  text-align: center;
+  font-weight: 500;
+  font-size: 2rem;
+  color: #929292;
+}
+.profile_inner_form .setup_inner .photo_upload:hover {
+  cursor: pointer;
+}
+.profile_inner_form .setup_inner .photo_upload img {
+  border-radius: inherit;
+  width: inherit;
+  height: inherit;
+}
+.profile_inner_form .setup_inner .photo_upload input {
+  display: none;
+}
+.profile_inner_form .setup_inner .details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 2;
+}
+.profile_inner_form .setup_inner .details input {
+  display: block;
+  width: 85%;
+  color: #0c2a57;
+  height: 5rem;
+  margin: 1rem 0;
+  border-radius: 30px;
+  border: 2px solid #a3a3a3;
+  font-size: 1.7rem;
+  padding: 0 15px;
+  outline: none;
+  transition: 0.3s border ease-in-out;
+}
+.profile_inner_form .setup_inner .details input:focus {
+  border: 2px solid #0c2a57;
+}
+.profile_inner_form .setup_inner .details input:focus::placeholder {
+  transition: 0.3s opacity ease-in;
+  opacity: 0;
+}
+.profile_inner_view {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  color: #0c2a57;
+  align-items: center;
+  margin: 3rem 2rem;
+}
+.profile_inner_view h1 {
+  line-height: 1.25;
+  font-size: 4.5rem;
+  text-align: center;
+  margin-top: 2rem;
+}
+.profile_inner_view .info {
+  display: flex;
+  width: 80%;
+  flex-direction: column;
+  align-items: center;
+}
+.profile_inner_view .info img {
+  border-radius: 50%;
+  width: 23rem;
+  height: 23rem;
+  margin-top: 3rem;
+  margin-bottom: 4rem;
+  border: 2px solid #ffffff;
+  outline: 2px solid #0c2a57;
+}
+.profile_inner_view .info_inner {
+  width: 80%;
+}
+.profile_inner_view .info_inner h2 {
+  font-size: 2rem;
+  width: 100%;
+  margin-top: 0.25rem;
+  display: flex;
+  justify-content: space-between;
+  font-weight: 300;
+}
+.profile_inner_view .info_inner h2 span {
+  font-weight: 400;
+  font-size: 2rem;
+  text-align: right;
+}
+.profile_inner_view .info_inner h2 span.review_false {
+  color: #e4a10f;
+}
+
+@media only screen and (max-width: 760px) {
+  .profile_inner {
+    width: 90%;
+  }
+  .profile_inner_form .setup {
+    width: 100%;
+  }
+  .profile_inner_view .info {
+    width: 100%;
+  }
+  .profile_inner_view .info_inner {
+    width: 100%;
+  }
+  .profile_inner_view .info_inner h2 {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+  .profile_inner_view .info_inner h2 span {
+    text-align: center;
+  }
+}
+@media only screen and (max-width: 700px) {
+  div.profile {
+    margin-left: clamp(5rem, 5vw, 7rem);
+  }
+}
+@media only screen and (max-width: 600px) {
+  div.profile_inner_form .setup_inner {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+  div.profile_inner_form .setup_inner .photo_upload {
+    margin-bottom: 1rem;
+  }
+}
+.company {
+  flex-basis: 100%;
+  display: block;
+  overflow: auto;
+}
+.company_inner_form {
+  width: 95%;
+  min-height: 90%;
+  display: flex;
+  color: #0c2a57;
+  margin: 4rem auto;
+  background-color: #ffffff;
+  align-items: center;
+  border-radius: 40px;
+}
+.company_inner_form .register {
+  display: flex;
+  flex-direction: column;
+  flex: 1.75;
+  margin: 2rem 0;
+  align-items: center;
+}
+.company_inner_form .register h1 {
+  line-height: 1.25;
+  width: 80%;
+  font-size: 4.5rem;
+  text-align: center;
+  padding: 1rem 0;
+  margin-bottom: 2rem;
+}
+.company_inner_form .register form {
+  display: block;
+  width: 90%;
+  display: flex;
+  margin-bottom: 2rem;
+  justify-content: space-between;
+}
+.company_inner_form .register form .logo {
+  flex-basis: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.company_inner_form .register form .logo_upload {
+  display: flex;
+  height: 25rem;
+  width: 25rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 2px solid #a3a3a3;
+}
+.company_inner_form .register form .logo_upload h2 {
+  text-align: center;
+  font-weight: 500;
+  font-size: 2rem;
+  color: #929292;
+}
+.company_inner_form .register form .logo_upload:hover {
+  cursor: pointer;
+}
+.company_inner_form .register form .logo_upload img {
+  width: inherit;
+  height: inherit;
+  border-radius: inherit;
+}
+.company_inner_form .register form .logo_upload input {
+  display: none;
+}
+.company_inner_form .register form .logo button {
+  display: block;
+  width: 65%;
+  height: 4.5rem;
+  background-color: #0c2a57;
+  border: none;
+  margin-top: 9rem;
+  border-radius: 30px;
+  color: #ffffff;
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+.company_inner_form .register form .logo button:hover {
+  cursor: pointer;
+}
+.company_inner_form .register form .details {
+  flex-basis: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.company_inner_form .register form .details input {
+  display: block;
+  width: 80%;
+  color: #0c2a57;
+  height: 5rem;
+  margin: 1rem 0;
+  border-radius: 30px;
+  border: 2px solid #a3a3a3;
+  font-size: 1.7rem;
+  padding: 0 15px;
+  outline: none;
+  transition: 0.3s border ease-in-out;
+}
+.company_inner_form .register form .details input:focus {
+  border: 2px solid #0c2a57;
+}
+.company_inner_form .register form .details input:focus::placeholder {
+  transition: 0.3s opacity ease-in;
+  opacity: 0;
+}
+.company_inner_form .register form .details select {
+  display: block;
+  width: 80%;
+  height: 5rem;
+  margin: 1rem 0;
+  border-radius: 30px;
+  border: 2px solid #a3a3a3;
+  font-size: 1.7rem;
+  padding: 0 15px;
+  background-color: transparent;
+  appearance: none;
+  outline: none;
+  color: #0c2a57;
+}
+.company_inner_form .register form .details select:hover {
+  cursor: pointer;
+}
+.company_inner_form .register form .details select:focus {
+  border: 2px solid #0c2a57;
+  cursor: pointer;
+}
+.company_inner_form .register form .details select:focus::placeholder {
+  transition: 0.3s opacity ease-in;
+  opacity: 0;
+}
+.company_inner_form h2.division {
+  color: #0c2a57;
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.company_inner_form h2.division::before, .company_inner_form h2.division::after {
+  width: 1px;
+  height: 40%;
+  content: "";
+  background-color: #a3a3a3;
+}
+.company_inner_form .enroll {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 2rem 0;
+  flex: 1;
+}
+.company_inner_form .enroll h1 {
+  line-height: 1.25;
+  width: 80%;
+  font-size: 4.5rem;
+  text-align: center;
+}
+.company_inner_form .enroll h2 {
+  font-size: 3rem;
+  line-height: 1.5;
+  text-align: center;
+  width: 65%;
+  margin-top: 2rem;
+  margin-bottom: 3rem;
+}
+.company_inner_form .enroll form {
+  display: block;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+.company_inner_form .enroll form input {
+  display: block;
+  color: #0c2a57;
+  width: 100%;
+  height: 5rem;
+  border-radius: 30px;
+  padding: 0 15px;
+  font-size: 1.7rem;
+  outline: none;
+  border: 2px solid #a3a3a3;
+  margin-bottom: 3.5rem;
+  transition: 0.3s border ease-in-out;
+}
+.company_inner_form .enroll form input:focus {
+  border: 2px solid #0c2a57;
+}
+.company_inner_form .enroll form input:focus::placeholder {
+  transition: 0.3s opacity ease-in;
+  opacity: 0;
+}
+.company_inner_form .enroll form button {
+  display: block;
+  width: 50%;
+  height: 4rem;
+  background-color: #0c2a57;
+  border: none;
+  border-radius: 30px;
+  color: #ffffff;
+  font-size: 1.7rem;
+  font-weight: 600;
+}
+.company_inner_form .enroll form button:hover {
+  cursor: pointer;
+}
+.company_inner_view {
+  width: 70%;
+  min-height: 90%;
+  display: flex;
+  color: #0c2a57;
+  margin: 4rem auto;
+  background-color: #ffffff;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 40px;
+}
+.company_inner_view .info {
+  margin: 3rem 2rem;
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.company_inner_view .info h1 {
+  font-size: 4.5rem;
+  text-align: center;
+}
+.company_inner_view .info img {
+  border-radius: 50%;
+  width: 25rem;
+  height: 25rem;
+  margin-top: 3rem;
+  border: 2px solid #ffffff;
+  outline: 2px solid #0c2a57;
+}
+.company_inner_view .info_view {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 3rem;
+  width: 100%;
+}
+.company_inner_view .info_view h2 {
+  font-size: 2rem;
+  width: 100%;
+  align-self: center;
+  margin-top: 0.25rem;
+  display: flex;
+  justify-content: space-between;
+  font-weight: 300;
+}
+.company_inner_view .info_view h2 span {
+  font-weight: 400;
+  font-size: 2rem;
+  text-align: right;
+}
+.company_inner_view .info_view div.refCode {
+  display: flex;
+  width: 100%;
+  margin-top: 0.25rem;
+}
+.company_inner_view .info_view div.refCode h2 {
+  margin-top: 0;
+}
+.company_inner_view .info_view div.refCode button {
+  display: block;
+  margin: auto 0;
+  margin-left: 1rem;
+  font-size: 2rem;
+  color: #aac0e0;
+  background: transparent;
+  border: none;
+}
+.company_inner_view .info_view div.refCode button:hover {
+  cursor: pointer;
+  color: #0c2a57;
+}
+
+@media only screen and (max-width: 790px) {
+  .company_inner_form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .company_inner_form h2.division {
+    display: block;
+    text-align: center;
+  }
+  .company_inner_form h2.division::before, .company_inner_form h2.division::after {
+    position: relative;
+    display: inline-block;
+    width: 40%;
+    height: 1px;
+    content: "";
+    top: -3px;
+    background-color: #a3a3a3;
+  }
+  .company_inner_form h2.division::before {
+    left: -5px;
+  }
+  .company_inner_form h2.division::after {
+    left: 5px;
+  }
+  .company_inner_view {
+    width: 90%;
+  }
+}
+@media only screen and (max-width: 700px) {
+  div.company {
+    margin-left: clamp(5rem, 5vw, 7rem);
+  }
+}
+@media only screen and (max-width: 600px) {
+  div.company_inner_form div.register form {
+    flex-direction: column;
+    align-items: center;
+  }
+  div.company_inner_form div.register form .details {
+    width: 80%;
+  }
+  div.company_inner_form div.register form .logo button {
+    margin: 2rem 0;
+  }
+  div.company_inner_view .info_view h2 {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    text-align: center;
+  }
+  div.company_inner_view .info_view h2 span {
+    text-align: center;
+  }
+  div.company_inner_view .info_view div.refCode {
+    width: fit-content;
+  }
+  div.company_inner_view .info_view div.refCode button {
+    margin-left: 2rem;
+  }
+}
+.emp_class {
+  display: flex;
+  flex-basis: 100%;
+  overflow: hidden;
+}
+.emp_class_active {
+  flex: 4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.emp_class_active_info {
+  background-color: #ffffff;
+  height: 95%;
+  width: 95%;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: auto;
+}
+.emp_class_active_info .utilities {
+  margin-top: 1rem;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+.emp_class_active_info .utilities button {
+  background: transparent;
+  border: none;
+  font-size: 4rem;
+  margin-right: 2rem;
+  color: #aac0e0;
+}
+.emp_class_active_info .utilities button:hover {
+  cursor: pointer;
+  color: #0c2a57;
+}
+.emp_class_active_info img {
+  height: 20rem;
+  width: 20rem;
+  border-radius: 50%;
+  margin-top: 2rem;
+  margin-bottom: 4rem;
+  border: 2px solid #ffffff;
+  outline: 2px solid #0c2a57;
+}
+.emp_class_active_info .text {
+  width: 80%;
+  color: #0c2a57;
+}
+.emp_class_active_info .text h2 {
+  font-size: 2rem;
+  width: 100%;
+  margin-top: 0.25rem;
+  display: flex;
+  justify-content: space-between;
+  font-weight: 300;
+}
+.emp_class_active_info .text h2 span {
+  font-weight: 400;
+  font-size: 2rem;
+  text-align: right;
+}
+.emp_class_active_info div.review {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.emp_class_active_info div.review_active {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.emp_class_active_info div.review_active hr {
+  width: 50%;
+  margin: 3rem auto;
+}
+.emp_class_active_info div.review_active h2 {
+  font-size: 3rem;
+  color: #0c2a57;
+}
+.emp_class_active_info div.review_active input[id=title] {
+  width: 50%;
+  height: 4.5rem;
+  border-radius: 30px;
+  color: #0c2a57;
+  font-size: 1.75rem;
+  border: 1px solid #a3a3a3;
+  padding: 0 15px;
+  margin-bottom: 4rem;
+}
+.emp_class_active_info div.review_active input[id=title]:focus {
+  border: 1px solid #0c2a57;
+}
+.emp_class_active_info div.review_active select {
+  margin: 3rem;
+  width: 50%;
+  background-color: transparent;
+  height: 4.5rem;
+  border-radius: 30px;
+  color: #0c2a57;
+  font-size: 1.75rem;
+  border: 1px solid #a3a3a3;
+  padding: 0 15px;
+}
+.emp_class_active_info div.review_active select:focus {
+  border: 1px solid #0c2a57;
+}
+.emp_class_active_info div.review_active .permissions {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.emp_class_active_info div.review_active .permissions h3 {
+  font-size: 2.5rem;
+  color: #0c2a57;
+  margin-bottom: 2rem;
+}
+.emp_class_active_info div.review_active .permissions label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 70%;
+  font-weight: 300;
+  color: #0c2a57;
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+  border-bottom: 1px solid #a3a3a3;
+}
+.emp_class_active_info div.review_active .permissions label input[type=checkbox] {
+  appearance: none;
+  width: 1.8rem;
+  height: 1.8rem;
+  border: 2px solid #0c2a57;
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.emp_class_active_info div.review_active .permissions label input[type=checkbox]:hover {
+  cursor: pointer;
+}
+.emp_class_active_info div.review_active .permissions label input[type=checkbox]:checked::before {
+  content: "";
+  width: 1rem;
+  height: 1rem;
+  background-color: #0c2a57;
+}
+.emp_class_active_info div.review .actions {
+  width: 50%;
+  margin: 5rem auto;
+  display: flex;
+  justify-content: space-between;
+}
+.emp_class_active_info div.review .actions button {
+  font-size: 1.75rem;
+  color: #0c2a57;
+  background-color: transparent;
+  border: 2px solid #0c2a57;
+  width: 40%;
+  height: 4.5rem;
+  border-radius: 30px;
+  font-weight: 600;
+}
+.emp_class_active_info div.review .actions button.approve {
+  background-color: #0c2a57;
+  color: #ffffff;
+  border: none;
+}
+.emp_class_active_info div.review .actions button:hover {
+  cursor: pointer;
+}
+.emp_class_list {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.emp_class_list ul {
+  width: 95%;
+  height: 95%;
+  background-color: white;
+  display: flex;
+  border-radius: 20px;
+  flex-direction: column;
+  overflow-y: auto;
+  align-items: center;
+}
+.emp_class_list ul li {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  border-bottom: 1px solid #c9bebe;
+}
+.emp_class_list ul li button {
+  display: flex;
+  width: 100%;
+  height: 10rem;
+  align-items: center;
+  justify-content: space-between;
+  background-color: transparent;
+  border: none;
+}
+.emp_class_list ul li button:hover {
+  background-color: #f8f8f8;
+  cursor: pointer;
+}
+.emp_class_list ul li button img {
+  width: 6rem;
+  height: 6rem;
+  margin-left: 4rem;
+  border-radius: 50%;
+  border: 1px solid #0c2a57;
+}
+.emp_class_list ul li button .details {
+  flex: 1.5;
+  margin-left: 2rem;
+}
+.emp_class_list ul li button .details h2 {
+  font-size: 2rem;
+  font-weight: 400;
+  color: #0c2a57;
+  line-height: 1.25;
+  text-align: left;
+}
+.emp_class_list ul li button .details h3 {
+  font-size: 1.5rem;
+  color: #0c2a57;
+  font-weight: 400;
+  text-align: left;
+}
+.emp_class_list ul li button .info {
+  flex: 1;
+  border-left: 1px solid #0c2a57;
+  height: 50%;
+  display: flex;
+  align-items: center;
+}
+.emp_class_list ul li button .info h3 {
+  font-size: 1.5rem;
+  color: #0c2a57;
+  width: 100%;
+  text-align: center;
+  font-weight: 400;
+}
+.emp_class_list ul li button .info span {
+  font-size: 1.75rem;
+}
+.emp_class_list ul li button .icon {
+  font-size: 3rem;
+  margin-right: 4rem;
+}
+.emp_class_list ul li button .icon_pending {
+  color: #f5c93b;
+}
+.emp_class_list ul li button .icon_approved {
+  color: green;
+}
+.emp_class_list ul li button.active {
+  height: 10rem;
+}
+.emp_class_list ul li button.active img {
+  margin-left: 2rem;
+}
+.emp_class_list ul li button.active .details {
+  margin-left: 1.5rem;
+  flex: 1;
+}
+.emp_class_list ul li button.active .icon {
+  margin-right: 2rem;
+}
+.emp_class_list ul li button.active .icon_pending {
+  color: #f5c93b;
+}
+.emp_class_list ul li button.active .icon_approved {
+  color: green;
+}
+
+@media only screen and (max-width: 1200px) {
+  div.emp_class_list ul li button img {
+    margin-left: 2rem;
+  }
+  div.emp_class_list ul li button .icon {
+    margin-right: 2rem;
+  }
+}
+@media only screen and (max-width: 1100px) {
+  div.emp_class_list ul li button .info {
+    display: none;
+  }
+}
+@media only screen and (max-width: 850px) {
+  div.emp_class {
+    display: flex;
+    overflow-y: auto;
+    flex-direction: column;
+  }
+}
+@media only screen and (max-width: 700px) {
+  div.emp_class {
+    margin-left: clamp(5rem, 5vw, 7rem);
+  }
+}
 .hamburger {
   cursor: pointer;
   height: 2.6rem;
@@ -741,9 +1598,9 @@ body {
 }
 
 .topbar {
-  flex: 1;
   display: flex;
   flex-flow: column nowrap;
+  flex-basis: auto;
   padding: 1rem 2rem;
   background-color: #ffffff;
 }
@@ -827,4 +1684,8 @@ body {
 
 .container {
   flex: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow-y: hidden;
 }
